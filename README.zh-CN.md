@@ -111,6 +111,12 @@ dnsflt uninstall-service
 
 全局参数：`-c/--config <PATH>`、`-v/--verbose`（可重复）、`--log-level <LEVEL>`。
 
+`run` 需要管理员权限。在非管理员的 shell 中，可以用下面的命令触发 UAC 弹窗：
+
+```sh
+powershell -Command "Start-Process 'dnsflt.exe' -ArgumentList '-c dnsflt.toml run' -Verb RunAs"
+```
+
 ### 配置
 
 完整带注释的示例见 [`dnsflt.toml`](dnsflt.toml)。未知键会被拒绝，拼错的

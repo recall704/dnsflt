@@ -128,6 +128,12 @@ dnsflt uninstall-service
 Global options: `-c/--config <PATH>`, `-v/--verbose` (repeatable),
 `--log-level <LEVEL>`.
 
+`run` needs elevation. From a non-admin shell, trigger the UAC prompt with:
+
+```sh
+powershell -Command "Start-Process 'dnsflt.exe' -ArgumentList '-c dnsflt.toml run' -Verb RunAs"
+```
+
 ### Configuration
 
 A fully commented example lives in [`dnsflt.toml`](dnsflt.toml). Unknown keys
