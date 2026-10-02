@@ -1,0 +1,8 @@
+2026-10-02T12:21:43.849423Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 53015 or tcp and tcp.DstPort == 53)) self_udp_port=53015 upstream_port=1053 buffer_size=65535
+2026-10-02T12:21:43.849644Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T12:21:43.849770Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T12:21:43.850072Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T12:39:23.788256Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 51185 or tcp and tcp.DstPort == 53)) self_udp_port=51185 upstream_port=1053 buffer_size=65535
+2026-10-02T12:39:23.788621Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T12:39:23.788706Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T12:39:23.789037Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535

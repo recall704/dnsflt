@@ -1,0 +1,63 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and publish release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # build.rs embeds the short git hash; keep the full history.
+          fetch-depth: 0
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Show versions
+        shell: pwsh
+        run: |
+          cargo --version
+          rustc --version
+
+      - name: Build (release)
+        shell: pwsh
+        run: cargo build --release --locked
+
+      - name: Stage release bundle
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $stage = "bundle/dnsflt-$tag-x86_64-windows"
+          New-Item -ItemType Directory -Path $stage -Force | Out-Null
+
+          $required = @(
+            "target/release/dnsflt.exe",
+            "target/release/WinDivert.dll",
+            "target/release/WinDivert64.sys"
+          )
+          foreach ($f in $required) {
+            if (-not (Test-Path -LiteralPath $f)) {
+              throw "missing required runtime file: $f"
+            }
+          }
+          Copy-Item $required -Destination $stage
+          Copy-Item @("LICENSE", "README.md", "README.zh-CN.md", "CHANGELOG.md", "dnsflt.toml") -Destination $stage
+
+          Compress-Archive -Path $stage -DestinationPath "$stage.zip"
+          Get-ChildItem $stage | Select-Object Name, Length
+          Get-Item "$stage.zip" | Select-Object Name, Length
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: bundle/*.zip

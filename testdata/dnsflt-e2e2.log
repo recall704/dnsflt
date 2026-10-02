@@ -1,0 +1,281 @@
+2026-10-02T13:02:53.442781Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 61933 or tcp and tcp.DstPort == 53)) self_udp_port=61933 upstream_port=1153 buffer_size=65535
+2026-10-02T13:02:53.442915Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T13:02:53.442997Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T13:02:53.443214Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T13:13:34.937523Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 65011 or tcp and tcp.DstPort == 53)) self_udp_port=65011 upstream_port=1153 buffer_size=65535
+2026-10-02T13:13:34.937886Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T13:13:34.937943Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T13:13:34.938276Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T13:30:38.826223Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 52730 or tcp and tcp.DstPort == 53)) self_udp_port=52730 upstream_port=1153 buffer_size=65535
+2026-10-02T13:30:38.826420Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T13:30:38.826487Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T13:30:38.826814Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T13:30:51.152163Z TRACE upstream query sent id=61154 len=29 server=192.168.0.1:1153
+2026-10-02T13:30:51.158831Z TRACE upstream reply received id=61154 len=6890 rtt_ms=6
+2026-10-02T13:30:54.189075Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:55.196192Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:56.671701Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:56.702623Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:56.998654Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:57.029187Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:57.198958Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:57.713721Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:57.729563Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:57.761110Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:58.040337Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:58.538505Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:58.775425Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:30:59.727074Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:00.037525Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:00.537400Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:00.788096Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:01.198553Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:02.531206Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:02.715665Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:02.746808Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:03.737406Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:03.768711Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:04.048170Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:04.703124Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:04.793608Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:05.219155Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:05.235368Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:05.767779Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:06.259024Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:06.723300Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:07.740552Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:07.772333Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.052964Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.084062Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.257347Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.724145Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.770988Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.787031Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:08.819263Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:09.086446Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:09.786809Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:09.833107Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:10.780915Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:11.093414Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:11.842883Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:12.265094Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:13.790669Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:13.820820Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:14.783715Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:14.829693Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:15.110999Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:15.854960Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:16.847537Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:20.846830Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:57.914022Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:57.945301Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:58.953094Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:59.422075Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:31:59.437427Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:00.457557Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:00.973413Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:02.457934Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:04.970435Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:06.479176Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:30.260292Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:30.307297Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:30.492617Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:30.538764Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:31.311989Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:31.542157Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:33.316371Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:33.548191Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:37.320904Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:37.552940Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:43.025471Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:43.055787Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:44.066279Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:46.062882Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:32:50.068314Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:21.568304Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:21.599788Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:22.609741Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:24.617151Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:28.637230Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:37.453283Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:37.484386Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:38.504802Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:40.512370Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:33:44.506130Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:11.331531Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:11.362537Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:12.358711Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:12.374455Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:12.389890Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:13.410449Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:14.367105Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:15.412043Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:18.366934Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:19.423544Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:20.848074Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:20.878907Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:21.882433Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:22.394964Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:22.425747Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:23.424614Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:23.906897Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:25.431447Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:27.902570Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:29.444167Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:34.933353Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:34.964286Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:35.986796Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:37.988058Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:41.992076Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:52.651386Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:52.698169Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:53.704168Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:55.710760Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:56.848631Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:56.879832Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:57.878444Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:59.710323Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:34:59.880807Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:03.903299Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:11.017983Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:11.064579Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:12.075708Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:12.915460Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:12.946610Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:13.956860Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:14.081421Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:15.955485Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:18.102694Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:19.964253Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:27.236414Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:27.268723Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:28.292219Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:30.297298Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:34.298911Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:54.348599Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:54.379676Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:55.392793Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:35:57.403582Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:01.417518Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:32.117700Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:32.149555Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:33.163566Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:35.174105Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:39.173396Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:44.034014Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:44.064278Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:45.060382Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:47.079144Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:36:51.076660Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:43.764451Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:43.780407Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:44.795095Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:44.980416Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:45.011337Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:46.017464Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:46.795743Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:48.025273Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:49.751189Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:49.766728Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:50.793243Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:50.793260Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:52.033502Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:52.790287Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:37:56.795297Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:37.244263Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:37.289790Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:37.897868Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:37.929362Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:38.288060Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:38.517722Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:38.564505Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:38.953172Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:39.571583Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:40.305480Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:40.959025Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:41.578991Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:44.316996Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:44.967078Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:45.583648Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:49.878918Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:49.894177Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:50.917091Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:52.913858Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:38:56.935148Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:31.227055Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:31.257937Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:32.271632Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:34.288738Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:38.298769Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:38.951348Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:38.982109Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:39.978651Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:41.991568Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:45.997323Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:50.024727Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:50.055080Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:51.076864Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:53.079036Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:57.035417Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:57.065617Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:57.095968Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:39:58.066563Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:00.080112Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:04.110193Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:29.168525Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:29.218220Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:30.204914Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:32.222968Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T13:40:36.230299Z TRACE caller gave up before the upstream replied attempt=0
+2026-10-02T14:09:01.977658Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 59243 or tcp and tcp.DstPort == 53)) self_udp_port=59243 upstream_port=1153 buffer_size=65535
+2026-10-02T14:09:01.977837Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T14:09:01.977847Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T14:09:01.978241Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T14:09:14.653914Z TRACE upstream cmd accepted id=1 len=43
+2026-10-02T14:09:14.654085Z TRACE upstream query sent id=1 len=43 server=192.168.0.1:1153
+2026-10-02T14:09:14.662111Z TRACE upstream reply received id=1 len=8006 rtt_ms=8
+2026-10-02T14:09:14.662206Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.663164Z TRACE upstream cmd accepted id=2 len=24
+2026-10-02T14:09:14.663265Z TRACE upstream query sent id=2 len=24 server=192.168.0.1:1153
+2026-10-02T14:09:14.666691Z TRACE upstream reply received id=2 len=3416 rtt_ms=3
+2026-10-02T14:09:14.666760Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.807628Z TRACE upstream cmd accepted id=1 len=43
+2026-10-02T14:09:14.807700Z TRACE upstream query sent id=1 len=43 server=192.168.0.1:1153
+2026-10-02T14:09:14.811554Z TRACE upstream reply received id=1 len=3839 rtt_ms=3
+2026-10-02T14:09:14.811643Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.812608Z TRACE upstream cmd accepted id=2 len=28
+2026-10-02T14:09:14.812680Z TRACE upstream query sent id=2 len=28 server=192.168.0.1:1153
+2026-10-02T14:09:14.817349Z TRACE upstream reply received id=2 len=4644 rtt_ms=4
+2026-10-02T14:09:14.817454Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:10:24.251463Z TRACE upstream cmd accepted id=22323 len=47
+2026-10-02T14:10:24.251571Z TRACE upstream query sent id=22323 len=47 server=192.168.0.1:1153
+2026-10-02T14:10:24.257123Z TRACE upstream reply received id=22323 len=5530 rtt_ms=5
+2026-10-02T14:10:24.257225Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:10:55.851322Z TRACE upstream cmd accepted id=33538 len=51
+2026-10-02T14:10:55.851386Z TRACE upstream query sent id=33538 len=51 server=192.168.0.1:1153
+2026-10-02T14:10:55.858599Z TRACE upstream reply received id=33538 len=7204 rtt_ms=7
+2026-10-02T14:10:55.858660Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:08.408394Z TRACE upstream cmd accepted id=48595 len=50
+2026-10-02T14:11:08.408472Z TRACE upstream query sent id=48595 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:08.412335Z TRACE upstream reply received id=48595 len=3857 rtt_ms=3
+2026-10-02T14:11:08.412387Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:31.861594Z TRACE upstream cmd accepted id=19442 len=50
+2026-10-02T14:11:31.861687Z TRACE upstream query sent id=19442 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:31.867030Z TRACE upstream reply received id=19442 len=5340 rtt_ms=5
+2026-10-02T14:11:31.867083Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:38.192946Z TRACE upstream cmd accepted id=36769 len=54
+2026-10-02T14:11:38.193024Z TRACE upstream query sent id=36769 len=54 server=192.168.0.1:1153
+2026-10-02T14:11:38.197203Z TRACE upstream reply received id=36769 len=4176 rtt_ms=4
+2026-10-02T14:11:38.197255Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:41.091072Z TRACE upstream cmd accepted id=30852 len=50
+2026-10-02T14:11:41.091168Z TRACE upstream query sent id=30852 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:41.095820Z TRACE upstream reply received id=30852 len=4664 rtt_ms=4
+2026-10-02T14:11:41.095869Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:51.700448Z TRACE upstream cmd accepted id=8300 len=47
+2026-10-02T14:11:51.700527Z TRACE upstream query sent id=8300 len=47 server=192.168.0.1:1153
+2026-10-02T14:11:51.852986Z TRACE upstream reply received id=8300 len=152437 rtt_ms=152
+2026-10-02T14:11:51.853056Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:12:02.792912Z TRACE upstream cmd accepted id=58765 len=50
+2026-10-02T14:12:02.793044Z TRACE upstream query sent id=58765 len=50 server=192.168.0.1:1153
+2026-10-02T14:12:02.797841Z TRACE upstream reply received id=58765 len=4795 rtt_ms=4
+2026-10-02T14:12:02.797930Z TRACE injected packet outbound=false idx=5

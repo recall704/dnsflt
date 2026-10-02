@@ -1,0 +1,10 @@
+# Build-time configuration for the WinDivert SDK vendored under vendor/windivert.
+# `windivert-sys` requires either WINDIVERT_PATH or the `vendored` feature; the
+# prebuilt, signed official WinDivert 2.2.2 user-mode DLL is vendored here so the
+# build works offline and the LGPL-3.0 component stays dynamically linked.
+[env]
+WINDIVERT_PATH = { value = "vendor/windivert", relative = true }
+
+[build]
+# Windows-only project.
+rustflags = []

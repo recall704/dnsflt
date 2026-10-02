@@ -1,0 +1,57 @@
+[package]
+name = "dnsflt"
+version = "0.1.0"
+edition = "2024"
+description = "Transparent DNS interceptor (YogaDNS-equivalent) built on WinDivert"
+license = "LGPL-3.0-only"
+repository = "https://github.com/recall704/dnsflt"
+readme = "README.md"
+
+[lib]
+name = "dnsflt"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dnsflt"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+dashmap = "6"
+# Only used for the human-readable packet dumps (`--dump`, `dnsflt check`);
+# the hot path is hand-rolled so we never allocate on the capture path.
+hickory-proto = "0.26"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "net",
+    "time",
+    "sync",
+    "macros",
+    "io-util",
+    "signal",
+] }
+toml = "1"
+tracing = "0.1"
+tracing-appender = "0.2"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "time"] }
+# LGPL-3.0: linked dynamically against WinDivert.dll (never the `static`/
+# `vendored` feature). build.rs places the DLL+SYS beside the produced exe.
+windivert = "0.6"
+windows-service = "0.8"
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = true

@@ -1,0 +1,53 @@
+2026-10-02T14:09:01.977463Z  INFO WinDivert handle open filter=(outbound and ip and not loopback and (udp and udp.DstPort == 53 and udp.SrcPort != 59243 or tcp and tcp.DstPort == 53)) self_udp_port=59243 upstream_port=1153 buffer_size=65535
+2026-10-02T14:09:01.977821Z  INFO dnsflt is intercepting DNS traffic
+2026-10-02T14:09:01.977842Z  INFO current counters: captured=0 dropped=0 injected=0 inject_errors=0 passed_through=0
+2026-10-02T14:09:01.978192Z  INFO control socket listening (dnsflt stats) addr=127.0.0.1:53535
+2026-10-02T14:09:14.653810Z TRACE upstream cmd accepted id=1 len=43
+2026-10-02T14:09:14.654076Z TRACE upstream query sent id=1 len=43 server=192.168.0.1:1153
+2026-10-02T14:09:14.662084Z TRACE upstream reply received id=1 len=8006 rtt_ms=8
+2026-10-02T14:09:14.662196Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.663134Z TRACE upstream cmd accepted id=2 len=24
+2026-10-02T14:09:14.663247Z TRACE upstream query sent id=2 len=24 server=192.168.0.1:1153
+2026-10-02T14:09:14.666664Z TRACE upstream reply received id=2 len=3416 rtt_ms=3
+2026-10-02T14:09:14.666753Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.807598Z TRACE upstream cmd accepted id=1 len=43
+2026-10-02T14:09:14.807692Z TRACE upstream query sent id=1 len=43 server=192.168.0.1:1153
+2026-10-02T14:09:14.811532Z TRACE upstream reply received id=1 len=3839 rtt_ms=3
+2026-10-02T14:09:14.811634Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:09:14.812584Z TRACE upstream cmd accepted id=2 len=28
+2026-10-02T14:09:14.812670Z TRACE upstream query sent id=2 len=28 server=192.168.0.1:1153
+2026-10-02T14:09:14.817316Z TRACE upstream reply received id=2 len=4644 rtt_ms=4
+2026-10-02T14:09:14.817442Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:10:24.251427Z TRACE upstream cmd accepted id=22323 len=47
+2026-10-02T14:10:24.251561Z TRACE upstream query sent id=22323 len=47 server=192.168.0.1:1153
+2026-10-02T14:10:24.257093Z TRACE upstream reply received id=22323 len=5530 rtt_ms=5
+2026-10-02T14:10:24.257215Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:10:55.851278Z TRACE upstream cmd accepted id=33538 len=51
+2026-10-02T14:10:55.851379Z TRACE upstream query sent id=33538 len=51 server=192.168.0.1:1153
+2026-10-02T14:10:55.858584Z TRACE upstream reply received id=33538 len=7204 rtt_ms=7
+2026-10-02T14:10:55.858654Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:08.408370Z TRACE upstream cmd accepted id=48595 len=50
+2026-10-02T14:11:08.408465Z TRACE upstream query sent id=48595 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:08.412323Z TRACE upstream reply received id=48595 len=3857 rtt_ms=3
+2026-10-02T14:11:08.412382Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:31.861565Z TRACE upstream cmd accepted id=19442 len=50
+2026-10-02T14:11:31.861679Z TRACE upstream query sent id=19442 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:31.867018Z TRACE upstream reply received id=19442 len=5340 rtt_ms=5
+2026-10-02T14:11:31.867077Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:38.192924Z TRACE upstream cmd accepted id=36769 len=54
+2026-10-02T14:11:38.193017Z TRACE upstream query sent id=36769 len=54 server=192.168.0.1:1153
+2026-10-02T14:11:38.197194Z TRACE upstream reply received id=36769 len=4176 rtt_ms=4
+2026-10-02T14:11:38.197249Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:41.091049Z TRACE upstream cmd accepted id=30852 len=50
+2026-10-02T14:11:41.091144Z TRACE upstream query sent id=30852 len=50 server=192.168.0.1:1153
+2026-10-02T14:11:41.095809Z TRACE upstream reply received id=30852 len=4664 rtt_ms=4
+2026-10-02T14:11:41.095864Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:11:51.700425Z TRACE upstream cmd accepted id=8300 len=47
+2026-10-02T14:11:51.700519Z TRACE upstream query sent id=8300 len=47 server=192.168.0.1:1153
+2026-10-02T14:11:51.852958Z TRACE upstream reply received id=8300 len=152437 rtt_ms=152
+2026-10-02T14:11:51.853047Z TRACE injected packet outbound=false idx=5
+2026-10-02T14:12:02.792847Z TRACE upstream cmd accepted id=58765 len=50
+2026-10-02T14:12:02.793024Z TRACE upstream query sent id=58765 len=50 server=192.168.0.1:1153
+2026-10-02T14:12:02.797819Z TRACE upstream reply received id=58765 len=4795 rtt_ms=4
+2026-10-02T14:12:02.797925Z TRACE injected packet outbound=false idx=5
+EXITCODE=1 

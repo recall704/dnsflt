@@ -1,0 +1,156 @@
+# dnsflt example configuration
+#
+# Every section and key is optional; the defaults shown here are what the
+# binary uses when the key is absent. Unknown keys are rejected, so a typo
+# fails loudly instead of being silently ignored.
+
+# ---------------------------------------------------------------------------
+# Upstream resolver
+# ---------------------------------------------------------------------------
+
+# Where queries are sent. Accepts:
+#   "udp://192.168.0.1:1053"   explicit UDP (default scheme)
+#   "tcp://192.168.0.1:1053"   force TCP (2-byte length prefix)
+#   "192.168.0.1:1053"         bare host:port, same as udp://
+#
+# The scheme only selects the transport used to *reach* the upstream. Replies
+# are always injected back to the application as if the application had
+# talked to the server it originally addressed.
+upstream = "192.168.0.1:1053"
+
+# Per-attempt timeout in milliseconds.
+timeout_ms = 2000
+
+# Extra attempts after the first one (0 = no retry).
+retries = 1
+
+# ---------------------------------------------------------------------------
+# Interception mode
+# ---------------------------------------------------------------------------
+#
+#   "hijack"      Absorb the query, ask the upstream, inject a forged reply
+#                 that appears to come from the original server. This is the
+#                 YogaDNS-style behaviour and the default.
+#   "forward"     Rewrite the destination to the upstream and let the kernel
+#                 handle the reply (source-address NAT). Requires an `udp://`
+#                 upstream and the same address family as the captured query.
+#   "passthrough" Re-inject every captured packet untouched. Useful for
+#                 verifying the capture path with no interference.
+mode = "hijack"
+
+# ---------------------------------------------------------------------------
+# Cache
+# ---------------------------------------------------------------------------
+
+cache = true
+
+# Cap on the TTL we will honour from an answer, in seconds. Prevents caching
+# a long-lived record when the operator expects short-lived behaviour.
+cache_max_ttl = 300
+
+# ---------------------------------------------------------------------------
+# Upstream failure behaviour
+# ---------------------------------------------------------------------------
+#
+#   "forward"  Hand the original query back to the real server so the
+#              application still gets an answer (degrades to plain DNS).
+#   "drop"     Drop the query. The application will time out.
+on_upstream_failure = "forward"
+
+# ---------------------------------------------------------------------------
+# Rules
+# ---------------------------------------------------------------------------
+#
+# Evaluated in order; the first match wins. Pattern semantics:
+#
+#   "corp.local"    matches the name itself and all of its subdomains
+#   "*.corp.local"  subdomains only — the bare `corp.local` is NOT matched
+#   "*corp.local"   any name ending in `corp.local` (apex included)
+#   "*"             catch-all, must be last
+#
+# Matching is case-insensitive.
+#
+#   [[rules]]
+#   hostnames = ["ads.example.com", "*.tracker.net"]
+#   action    = "block"              # block | passthrough | server
+#
+#   [[rules]]
+#   hostnames = ["*.corp.internal"]
+#   server    = "10.0.0.53:53"       # `server` implies action = "server"
+#
+#   [[rules]]
+#   hostnames = ["*"]                # catch-all, must be last
+#   action    = "passthrough"
+#
+# Note: this key must appear *before* any [table] header, because TOML would
+# otherwise read it as belonging to the preceding table.
+rules = []
+
+# ---------------------------------------------------------------------------
+# Capture
+# ---------------------------------------------------------------------------
+
+[capture]
+intercept_ipv4 = true
+intercept_ipv6 = true
+
+# Answer TCP port 53 with a RST (RFC 793 §3.4). Off by default: TCP DNS is
+# rare and some resolvers fall back to it when UDP is truncated. Enable only
+# if you want to guarantee that DNS always goes through the hijack path.
+block_tcp_53 = false
+
+# QTYPEs to intercept. Empty means "everything". A non-empty list acts as a
+# whitelist: queries for any other QTYPE are passed through untouched.
+#   1 = A, 28 = AAAA, 5 = CNAME, 12 = PTR, 33 = SRV, 65 = HTTPS
+qtype_whitelist = []
+
+# Extra process IDs to leave alone. Our own PID is always excluded, so this is
+# only needed for third-party processes that should not be intercepted.
+exclude_pids = []
+
+# Pin outbound (forward-mode) injection to a specific interface index.
+# 0 = let the driver choose.
+upstream_ifindex = 0
+
+# WinDivert queue length, in packets.
+queue_length = 4096
+
+# How long the driver keeps a packet in the queue before dropping it, in
+# milliseconds. Driver clamps this to 100..16000.
+queue_time_ms = 2000
+
+# Receive buffer size. 0 means "use the interface MTU (65535)".
+max_packet_size = 0
+
+# ---------------------------------------------------------------------------
+# Pending table
+# ---------------------------------------------------------------------------
+#
+# Bounds the in-flight query map. `ttl_ms` is the hard deadline for a query
+# that the upstream never answers; `max_entries` is the point at which new
+# queries stop being absorbed and are passed through instead.
+[pending]
+ttl_ms = 5000
+max_entries = 4096
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+
+[log]
+# error | warn | info | debug | trace
+level = "info"
+# Append to this file in addition to stderr. Handy when running as a service.
+# file = "C:\\dnsflt\\dnsflt.log"
+dump = false
+rotate = false
+
+# ---------------------------------------------------------------------------
+# Control socket
+# ---------------------------------------------------------------------------
+#
+# A plain TCP socket on localhost used by `dnsflt stats`. It has no
+# authentication, so it must stay bound to loopback.
+[control]
+enabled = true
+addr = "127.0.0.1:53535"

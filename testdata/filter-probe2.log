@@ -1,0 +1,42 @@
+== is the `udp` guard required with `!=`? ==
+  OK    bare != no guard
+          outbound and ip and udp.DstPort == 53 and udp.SrcPort != 54080 and not loopback
+  OK    with udp guard
+          outbound and ip and udp and udp.DstPort == 53 and udp.SrcPort != 54080 and not loopback
+  OK    inside udp branch, no explicit guard
+          outbound and ip and not loopback and ((udp.DstPort == 53 and udp.SrcPort != 54080) or tcp.DstPort == 53)
+  OK    inside udp branch, explicit udp guard
+          outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))
+
+== does `not (==)` work when the field is guaranteed present? ==
+  FAIL  not (==) under explicit udp guard
+          outbound and ip and udp and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  not (==) under udp.DstPort guard
+          outbound and ip and udp.DstPort == 53 and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+
+== other self-exclusion shapes ==
+  OK    tcp.SrcPort != in tcp branch
+          outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53 and tcp.SrcPort != 54080))
+  OK    exclude via neq on both
+          outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))
+
+== full mode filters with the fix applied ==
+  OK    HIJACK + block_tcp_53
+          outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))
+  OK    HIJACK udp-only
+          outbound and ip and not loopback and udp and udp.DstPort == 53 and udp.SrcPort != 54080
+  OK    PASSTHROUGH
+          outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))
+  OK    FORWARD (inbound clause included)
+          (outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))) or (inbound and ip and not loopback and udp and udp.SrcPort == 1053)
+
+== ipv6 / v4 variants ==
+  OK    ipv4+ipv6 hijack
+          (outbound and (ip or ipv6) and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53)))
+  OK    v4 hijack + inbound
+          (outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))) or (inbound and ip and not loopback and udp and udp.SrcPort == 1053 and udp.SrcPort != 60000)
+  OK    v6 only
+          (outbound and ipv6 and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53))) or (inbound and ipv6 and not loopback and udp and udp.SrcPort == 1053)
+EXITCODE=0 

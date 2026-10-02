@@ -1,0 +1,36 @@
+# E2E config #2: real upstream on the LAN gateway.
+#
+# 192.168.0.1:1153 is a resolver that returns real IPs for domestic names
+# (jd.com) and fake 28.x addresses for foreign ones (google.com). dnsflt must
+# be transparent: whatever this upstream says is what the client must get.
+
+upstream = "192.168.0.1:1153"
+mode = "hijack"
+timeout_ms = 3000
+retries = 1
+cache = false
+cache_max_ttl = 300
+on_upstream_failure = "drop"
+
+rules = []
+
+[capture]
+intercept_ipv4 = true
+intercept_ipv6 = false
+block_tcp_53 = true
+upstream_ifindex = 0
+queue_length = 2048
+queue_time_ms = 1000
+max_packet_size = 0
+
+[pending]
+max_entries = 4096
+ttl_ms = 10000
+
+[log]
+level = "trace"
+file = "C:/tmp/yogadns-re/dnsflt/testdata/dnsflt-e2e2.log"
+
+[control]
+enabled = true
+addr = "127.0.0.1:53535"

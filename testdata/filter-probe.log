@@ -1,0 +1,61 @@
+== generated filter ==
+  FAIL  full
+          (outbound and ip and (udp.DstPort == 53 or tcp.DstPort == 53) and not (udp.SrcPort == 54080) and not loopback)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+
+== bisect: drop one clause at a time ==
+  OK    no SrcPort
+          (outbound and ip and (udp.DstPort == 53 or tcp.DstPort == 53) and not loopback)
+  FAIL  no loopback
+          (outbound and ip and (udp.DstPort == 53 or tcp.DstPort == 53) and not (udp.SrcPort == 54080))
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  udp only
+          (outbound and ip and udp.DstPort == 53 and not (udp.SrcPort == 54080) and not loopback)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  tcp only
+          (outbound and ip and tcp.DstPort == 53 and not (udp.SrcPort == 54080) and not loopback)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  OK    no SrcPort, no loopback
+          (outbound and ip and (udp.DstPort == 53 or tcp.DstPort == 53))
+
+== isolate the SrcPort clause ==
+  OK    bare udp.SrcPort eq
+          udp.SrcPort == 54080
+  FAIL  not bare udp.SrcPort eq
+          not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  not bare udp.SrcPort eq, with ip
+          ip and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  not bare udp.SrcPort eq, with outbound
+          outbound and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  not bare udp.SrcPort eq, outbound+ip
+          outbound and ip and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+
+== isolate the loopback clause ==
+  OK    bare loopback
+          loopback
+  OK    not bare loopback
+          not loopback
+  OK    not loopback with ip
+          ip and not loopback
+
+== isolate the or-group ==
+  OK    or-group only
+          (udp.DstPort == 53 or tcp.DstPort == 53)
+  FAIL  or-group with not SrcPort
+          (udp.DstPort == 53 or tcp.DstPort == 53) and not (udp.SrcPort == 54080)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+
+== candidate fixes ==
+  FAIL  fix A: SrcPort guard inside each branch
+          (outbound and ip and ((udp.DstPort == 53 and not (udp.SrcPort == 54080)) or tcp.DstPort == 53) and not loopback)
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  FAIL  fix B: separate udp/tcp groups
+          (outbound and ip and not loopback and ((udp and udp.DstPort == 53 and not (udp.SrcPort == 54080)) or (tcp and tcp.DstPort == 53)))
+          -> Invalid parameter (filter string, layer, priority, or flags)
+  OK    fix C: udp.SrcPort comparison inside udp guard
+          (outbound and ip and not loopback and ((udp and udp.DstPort == 53 and udp.SrcPort != 54080) or (tcp and tcp.DstPort == 53)))
+EXITCODE=0 

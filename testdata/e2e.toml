@@ -1,0 +1,36 @@
+# End-to-end test configuration.
+#
+# Upstream is our own LAN address (192.168.0.100) so the fake upstream server
+# is reachable. Loopback is impossible here: WinDivert never sees loopback
+# traffic, so the reply would never be captured back in.
+
+upstream = "127.0.0.1:1053"
+mode = "hijack"
+timeout_ms = 2000
+retries = 0
+cache = false
+cache_max_ttl = 300
+on_upstream_failure = "drop"
+
+rules = []
+
+[capture]
+intercept_ipv4 = true
+intercept_ipv6 = false
+block_tcp_53 = true
+upstream_ifindex = 0
+queue_length = 2048
+queue_time_ms = 1000
+max_packet_size = 0
+
+[pending]
+max_entries = 4096
+ttl_ms = 10000
+
+[log]
+level = "trace"
+file = "C:/tmp/yogadns-re/dnsflt/testdata/dnsflt-e2e.log"
+
+[control]
+enabled = true
+addr = "127.0.0.1:53535"
